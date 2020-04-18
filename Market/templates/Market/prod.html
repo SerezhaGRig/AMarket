@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'market:index' %}"><h3>Главная страница</h3></a>
+<a href="{% url 'market:add' %}"><h3>Добавить</h3></a>
+<a href="{% url 'market:del' %}"><h3>Удалить</h3></a>
+<table>
+    <tr>
+        <th>_________Id_________________</th>
+        <th>Имя___________________</th>
+        <th>Колич.____________________</th>
+        <th>Праср.______________</th>
+        <th>Цена_____________________________________</th>
+    </tr>
+</table>
+
+
+<p></p>
+<form method="post">
+{% csrf_token %}
+{% for pr  in prod %}
+
+
+
+
+
+
+
+            {{ pr }}
+<p></p>
+
+{% endfor %}
+ <input type="submit" value="Изм">
+
+
+</form>
+
+
+<div>
+    <p>{{ page.number }}-ая страница из {{ page.paginator.num_pages }}</p>
+    <h3>Страници</h3>
+    {% for p in rg %}
+        {% if p == page.number %}
+            <a href="?page={{ p }}">   <i>__[ {{p}} ]__</i>   </a>
+
+        {% else %}
+
+             <a href="?page={{ p }}"> __[{{p}}]__    </a>
+
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

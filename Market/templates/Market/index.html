@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8">
+<titlе><h3>Главная - Магазин</h3></titlе>
+</head>
+<body>
+<h1>Категории</h1>
+{% for cat in categ %}
+<div>
+ <a href="/{{cat.eng_name}}"><h2>{{ cat.name }}</h2></a>
+</div>
+{% endfor %}
+</body>
+</html>
